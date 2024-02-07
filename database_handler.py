@@ -7,10 +7,9 @@ def init_database():
     return db
 
 
-def save_to_database(db, data_list, cursor):
+def save_to_database(db, data_dic, url):
     try:
-        db.insert_many(data_list)
-        print("数据保存成功")
+        db.insert_one(data_dic)
     except:
         print("数据保存失败")
-        print("当前cursor:", cursor)
+        print("错误url:", url)
